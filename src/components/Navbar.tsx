@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 ">
       {/* LOGO  */}
-      <div>
+      <div className="md:hidden">
         <Link
           href="/"
           className="text-sm bg-black rounded-md p-1 font-semibold flex justify-center items-center"
@@ -23,15 +23,18 @@ const Navbar = () => {
       </div>
 
       {/* RESPONSIVE MENU */}
-      <div>
-        <button className="w-10 h-6 flex flex-col justify-between z-50 relative" onClick={() => setToggleMenu(!toggleMenu)}>
+      <div className="md:hidden">
+        <button
+          className="w-10 h-6 flex flex-col justify-between z-50 relative"
+          onClick={() => setToggleMenu(!toggleMenu)}
+        >
           <div className="w-10 h-1 bg-white rounded"></div>
           <div className="w-10 h-1 bg-white rounded"></div>
           <div className="w-10 h-1 bg-white rounded"></div>
         </button>
 
         {/* MENU LIST */}
-        { toggleMenu &&
+        {toggleMenu && (
           <div className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col justify-center items-center gap-8 text-4xl">
             {links.map((link) => (
               <Link href={link.url} key={link.url}>
@@ -39,7 +42,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-        }
+        )}
       </div>
     </div>
   );
