@@ -1,9 +1,5 @@
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <main>
-      Lopess
-   </main>
-  );
+  return <main>Lopes</main>;
 }
