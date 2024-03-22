@@ -21,6 +21,14 @@ const TransitionProvider = ({ children }: { children: ReactNode }) => {
           transition={{ duration: 2, ease: "easeOut" }}
         />
         <m.div
+          className="fixed m-auto top-0 bottom-0 left-0 right-0 text-white text-8xl cursor-default bg-red-500 z-50"
+          animate={{ height: "0vh" }}
+          exit={{ height: "140vh" }}
+          transition={{ duration: 2, ease: "easeOut" }}
+        >
+          {pathName}
+        </m.div>
+        <m.div
           className="w-screen h-screen fixed bg-red-500 rounded-t-[100px] bottom-0 z-30"
           initial={{ height: "140vh" }}
           animate={{ height: "0vh", transition: { delay: 2 } }}
