@@ -10,7 +10,26 @@ import { motion as m } from "framer-motion";
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  const topVariants = {
+  interface VariantTypes {
+    closed: {
+      rotate?: number;
+      opacity?: number;
+      x?: number | string;
+    };
+
+    opened: {
+      rotate?: number;
+      opacity?: number;
+      backgroundColor?: string;
+      x?: number | string;
+        transition?: {
+          when?: string,
+        staggerChildren?: number;
+      };
+    };
+  }
+
+  const topVariants: VariantTypes = {
     closed: {
       rotate: 0,
     },
@@ -20,7 +39,7 @@ const Navbar = () => {
     },
   };
 
-  const centerVariants = {
+  const centerVariants: VariantTypes = {
     closed: {
       opacity: 1,
     },
@@ -29,13 +48,37 @@ const Navbar = () => {
     },
   };
 
-  const bottomVariants = {
+  const bottomVariants: VariantTypes = {
     closed: {
       rotate: 0,
     },
     opened: {
       rotate: -45,
       backgroundColor: "rgb(255,255,255)",
+    },
+  };
+
+  const listVariant: VariantTypes = {
+    closed: {
+      x: "100vw",
+    },
+    opened: {
+      x: 0,
+        transition: {
+          when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const listItemVariant = {
+    closed: {
+      x: -10,
+      opacity: 0,
+    },
+    opened: {
+      x: 0,
+      opacity: 1,
     },
   };
 
@@ -95,13 +138,20 @@ const Navbar = () => {
 
         {/* MENU LIST */}
         {toggleMenu && (
-          <div className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col justify-center items-center gap-8 text-4xl">
+          <m.div
+            variants={listVariant}
+            initial="closed"
+            animate="opened"
+            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col justify-center items-center gap-8 text-4xl z-40"
+          >
             {links.map((link) => (
-              <Link href={link.url} key={link.url}>
-                {link.title}
-              </Link>
+              <m.div variants={listItemVariant} className="" key={link.url}>
+                <Link href={link.url} key={link.url}>
+                  {link.title}
+                </Link>
+              </m.div>
             ))}
-          </div>
+          </m.div>
         )}
       </div>
     </div>

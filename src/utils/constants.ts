@@ -1,9 +1,9 @@
 // // import { url } from "inspector";
-// interface LINKS {
-//   url: string;
-//   title?: string;
-//   icon?: string;
-// }
+interface LINKS {
+  url: string;
+  title?: string;
+  icon?: string;
+}
 
 const links = [
   {
