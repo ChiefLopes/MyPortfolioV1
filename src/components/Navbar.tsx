@@ -1,6 +1,7 @@
 "use client";
 
-import { links } from "@/utils/constants";
+import { links, SOCIALS } from "@/utils/constants";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -8,9 +9,9 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 ">
+    <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-46 ">
       {/* LOGO  */}
-      <div className="md:hidden">
+      <div className="md:hidden lg:flex">
         <Link
           href="/"
           className="text-sm bg-black rounded-md p-1 font-semibold flex justify-center items-center"
@@ -20,6 +21,23 @@ const Navbar = () => {
             .dev
           </span>
         </Link>
+      </div>
+
+      <div className="hidden md:flex gap-8">
+        {links.map((link) => (
+          <Link href={link.url} key={link.url}>
+            {link.title}
+          </Link>
+        ))}
+      </div>
+
+      {/* SOCIAL ICONS */}
+      <div className="hidden md:flex gap-6">
+        {SOCIALS.map((social) => (
+          <Link href={social.url} key={social.url}>
+            <Image src={social.icon} alt={social.url} width={24} height={24} />
+          </Link>
+        ))}
       </div>
 
       {/* RESPONSIVE MENU */}

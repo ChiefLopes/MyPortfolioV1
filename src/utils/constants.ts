@@ -1,3 +1,10 @@
+// // import { url } from "inspector";
+// interface LINKS {
+//   url: string;
+//   title?: string;
+//   icon?: string;
+// }
+
 const links = [
   {
     url: "/",
@@ -17,6 +24,33 @@ const links = [
   },
 ];
 
+const SOCIALS = [
+  {
+    url: "/",
+    icon: "/github.png",
+  },
+  {
+    url: "/",
+    icon: "/linkedin.png",
+  },
+  {
+    url: "/",
+    icon: "/facebook.png",
+  },
+  {
+    url: "/",
+    icon: "/instagram.png",
+  },
+  {
+    url: "/",
+    icon: "/dribble.png",
+  },
+  {
+    url: "/",
+    icon: "/pinterest.png",
+  },
+];
 
+console.log(SOCIALS);
 
-export {links}
+export { links, SOCIALS };
