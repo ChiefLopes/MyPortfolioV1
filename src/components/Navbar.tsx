@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-36">
       {/* LOGO  */}
-      <div className="md:hidden w-1/3 lg:flex">
+      <div className="md:hidden xl:w-1/3 lg:flex ">
         <Link
           href="/"
           className="text-sm bg-black rounded-md p-1 font-semibold flex justify-center items-center"
@@ -27,7 +27,7 @@ const Navbar = () => {
       {/* NAV LINKS */}
       <div className="hidden md:flex gap-6 w-1/3 text-black font-bold text-[18px]">
         {links.map((link) => (
-            <NavLink key={link.url} link={link} />
+          <NavLink key={link.url} link={link} />
         ))}
       </div>
 
