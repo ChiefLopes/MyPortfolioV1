@@ -4,6 +4,7 @@ import { links, SOCIALS } from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import NavLink from "./NavLink";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -24,11 +25,9 @@ const Navbar = () => {
       </div>
 
       {/* NAV LINKS */}
-      <div className="hidden md:flex gap-8 w-1/3  ">
+      <div className="hidden md:flex gap-6 w-1/3 text-black font-bold text-[18px]">
         {links.map((link) => (
-          <Link href={link.url} key={link.url}>
-            {link.title}
-          </Link>
+            <NavLink key={link.url} link={link} />
         ))}
       </div>
 
