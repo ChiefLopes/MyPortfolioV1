@@ -5,9 +5,39 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./NavLink";
+import { motion as m } from "framer-motion";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+
+  const topVariants = {
+    closed: {
+      rotate: 0,
+    },
+    opened: {
+      rotate: 45,
+      backgroundColor: "rgb(255,255,255)",
+    },
+  };
+
+  const centerVariants = {
+    closed: {
+      opacity: 1,
+    },
+    opened: {
+      opacity: 0,
+    },
+  };
+
+  const bottomVariants = {
+    closed: {
+      rotate: 0,
+    },
+    opened: {
+      rotate: -45,
+      backgroundColor: "rgb(255,255,255)",
+    },
+  };
 
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-36">
@@ -41,14 +71,26 @@ const Navbar = () => {
       </div>
 
       {/* RESPONSIVE MENU */}
-      <div className="md:hidden">
+      <div className="flex items-end md:hidden">
         <button
-          className="w-10 h-6 flex flex-col justify-between z-50 relative"
+          className="w-10 h-8 flex flex-col justify-between z-50 relative"
           onClick={() => setToggleMenu(!toggleMenu)}
         >
-          <div className="w-10 h-1 bg-white rounded"></div>
-          <div className="w-10 h-1 bg-white rounded"></div>
-          <div className="w-10 h-1 bg-white rounded"></div>
+          <m.div
+            variants={topVariants}
+            animate={toggleMenu ? "opened" : "closed"}
+            className="w-10 h-1 bg-black rounded origin-left"
+          ></m.div>
+          <m.div
+            variants={centerVariants}
+            animate={toggleMenu ? "opened" : "closed"}
+            className="w-10 h-1 bg-black rounded"
+          ></m.div>
+          <m.div
+            variants={bottomVariants}
+            animate={toggleMenu ? "opened" : "closed"}
+            className="w-10 h-1 bg-black rounded origin-left"
+          ></m.div>
         </button>
 
         {/* MENU LIST */}
