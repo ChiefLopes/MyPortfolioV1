@@ -9,9 +9,9 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-46 ">
+    <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-36">
       {/* LOGO  */}
-      <div className="md:hidden lg:flex">
+      <div className="md:hidden w-1/3 lg:flex">
         <Link
           href="/"
           className="text-sm bg-black rounded-md p-1 font-semibold flex justify-center items-center"
@@ -23,7 +23,8 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="hidden md:flex gap-8">
+      {/* NAV LINKS */}
+      <div className="hidden md:flex gap-8 w-1/3  ">
         {links.map((link) => (
           <Link href={link.url} key={link.url}>
             {link.title}
@@ -32,7 +33,7 @@ const Navbar = () => {
       </div>
 
       {/* SOCIAL ICONS */}
-      <div className="hidden md:flex gap-6">
+      <div className="hidden md:flex gap-6 w-1/3 justify-center ">
         {SOCIALS.map((social) => (
           <Link href={social.url} key={social.url}>
             <Image src={social.icon} alt={social.url} width={24} height={24} />
