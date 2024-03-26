@@ -1,4 +1,6 @@
-import {motion as m } from "framer-motion"
+"use client"
+
+import { motion as m } from "framer-motion"
 
 const Contacts = () => {
   return (

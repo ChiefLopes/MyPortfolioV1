@@ -2,13 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import LINKS from "@/utils/LinkTypes";
 
-interface LinkItem {
-  url: string;
-  title: string;
-}
 
-const NavLink = ({ link }: { link: LinkItem }) => {
+
+const NavLink = ({ link }: {link: LINKS}) => {
   const pathName = usePathname();
   console.log(pathName);
 

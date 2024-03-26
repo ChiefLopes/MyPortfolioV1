@@ -1,6 +1,8 @@
+"use client"
+
 import { motion as m } from "framer-motion";
 
-const about = () => {
+const About = () => {
   return (
     <m.div
       className="h-full"
@@ -13,4 +15,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;
